@@ -1,0 +1,14 @@
+<!-- footer -->
+<footer class="text-center text-white-fixed-bottom">
+    <div class="container pt-4">
+        <hr>
+        <section class="mb-4">
+            {% for item in site.data.footer %}
+            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="{{ item.link }}" role="button"
+                data-mdb-ripple-color="dark">
+                <i class="{{ item.icon }}"></i>
+            </a>
+            {% endfor %}
+        </section>
+    </div>
+</footer>
