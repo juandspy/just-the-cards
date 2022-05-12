@@ -1,0 +1,15 @@
+- name: Home
+  link: /
+- name: Documentation
+  link: /docs/index.html
+  folder: docs
+  children:
+    - name: Includes
+      path: includes
+    - name: Layouts
+      path: layouts
+    - name: Separating sections
+      path: separated
+      separated: true
+- name: About
+  link: /about.html

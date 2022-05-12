@@ -1,0 +1,27 @@
+.current {
+    font-weight: bold;
+}
+
+body {
+  padding-top: 70px;
+  padding-bottom: 20px;
+}
+
+.card:hover {
+  transform: scale(1.005);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body>.container {
+  flex-grow: 1;
+}
