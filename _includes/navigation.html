@@ -13,7 +13,6 @@
         <ul class="navbar-nav mr-auto">
             {% for item in site.data.navigation %}
 
-            <!-- TODO: Use current -->
             <!-- No dropdown -->
             {% if item.children == nil %}
             <li class="nav-item {% if page.url == item.link %}active{% endif %}">
