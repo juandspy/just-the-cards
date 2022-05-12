@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
+    <!-- Brand -->
+    <a class="navbar-brand">Study materials</a>
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links/sections -->
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav mr-auto">
+            {% for item in site.data.navigation %}
+
+            <!-- TODO: Use current -->
+            <!-- No dropdown -->
+            {% if item.children == nil %}
+            <li class="nav-item {% if page.url == item.link %}active{% endif %}">
+                <a class="nav-link" href="{{ item.link }}">
+                    {{ item.name }}
+                    {% if page.url == item.link %}
+                    <span class="sr-only">(current)</span>
+                    {% endif %}
+                </a>
+            </li>
+
+            <!-- With dropdown -->
+            {% else %}
+
+            <li class="nav-item dropdown {% if page.url contains item.folder %}active{% endif %}">
+                <a class="nav-link dropdown-toggle" href="#" id="navbar{{ item.name }}Dropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ item.name }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% assign main_children = "" | split,"" %}
+                    {% assign separated_children = "" | split,"" %}
+
+                    {% for item in item.children %}
+                    {% if item.separated %}
+                    {% assign separated_children = separated_children | push:item %}
+                    {% else %}
+                    {% assign main_children = main_children | push:item %}
+                    {% endif %}
+                    {% endfor %}
+
+                    <!-- Main categories -->
+                    {% assign sorted_sub_items = main_children | sort: 'name' %}
+
+                    {% for sub_item in sorted_sub_items %}
+                    <a class="dropdown-item" href="/{{item.folder}}/{{sub_item.path}}">{{sub_item.name}}</a>
+                    {% endfor %}
+
+                    <!-- Separated categories -->
+                    {% if separated_children.size > 0 %}
+                    <div class="dropdown-divider"></div>
+                    {% endif %}
+
+                    {% assign sorted_sub_items = separated_children | sort: 'name' %}
+
+                    {% for sub_item in sorted_sub_items %}
+                    <a class="dropdown-item" href="/{{item.folder}}/{{sub_item.path}}">{{sub_item.name}}</a>
+                    {% endfor %}
+                </div>
+            </li>
+
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+
+</nav>
