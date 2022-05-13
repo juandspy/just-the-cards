@@ -1,0 +1,50 @@
+---
+layout: default
+show_title: false
+---
+<h2>{{page.title}}</h2>
+
+<small>
+    <p>
+        Added on {{ page.date | date: "%-d %B %Y" }}
+    </p>
+</small>
+
+<p>{{page.content}}</p>
+
+<div class="container">
+    <div class="row">
+        {% if page.pdf != nil %}
+        <div class="col">
+
+            <p>Check the PDF here</p>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe src="https://docs.google.com/gview?url={{page.pdf}}&embedded=true" frameborder="0"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+        {% endif %}
+        <div class="col">
+            {% if page.video != nil %}
+            <p>Check the demo video here</p>
+
+            {% if page.video contains "youtube" %}
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe frameborder="0" src={{page.video}} allowfullscreen>
+                </iframe>
+            </div>
+
+            {% else %}
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe src="https://docs.google.com/gview?url={{page.video}}&embedded=true" frameborder="0"
+                    allowfullscreen></iframe>
+            </div>
+
+            {% endif %}
+
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% include back_url.html %}
