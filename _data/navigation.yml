@@ -4,6 +4,8 @@
   link: /docs/index.html
   folder: docs
   children:
+    - name: Cards
+      path: cards
     - name: Includes
       path: includes
     - name: Layouts

@@ -1,0 +1,32 @@
+---
+layout: default
+show_title: true
+---
+
+{{ content }}
+
+<div class="card-deck">
+    {% assign parent = page.url | remove:'index.html' %}
+
+    {% for page in site.pages %}
+
+    {% comment %}
+    Iterate over the pages under the parent
+    {% endcomment %}
+    {% assign checkArray = page.url | split:parent %}
+
+    {% if checkArray[0] == "" %}
+
+    {% include card_preview.html
+    url=page.url
+    title=page.title
+    date=page.date
+    content=page.content
+    pdf=page.pdf
+    video=page.video
+    %}
+
+    {% endif %}
+
+    {% endfor %}
+</div>

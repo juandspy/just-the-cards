@@ -1,0 +1,15 @@
+<div class="container">
+    {% assign url = page.url | remove:'.html' | split: "/" %}
+
+    {% assign path = url | pop %}
+
+    {% capture parent_url %}
+    {% for dir in path offset: 1 %}{{ dir | append: "/" }}{% endfor %}
+    {% endcapture %}
+
+    {% if path.size == 1 %}
+    <a class="back" href="/">Home</a>
+    {% else %}
+    <a class="back" href="/{{ parent_url | strip }}">« {{ path | last }}</a>
+    {% endif %}
+</div>
