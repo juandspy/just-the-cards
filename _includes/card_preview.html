@@ -1,0 +1,31 @@
+<div class="card mb-4" style="min-width: 15rem; max-width: 30rem;">
+    {% if include.image != nil %}
+    <img class="card-img-top" src="{{ include.image }}" alt="Card preview image">
+    {% endif %}
+    <div class="card-body">
+        <h5 class="card-title">
+            <a href="{{ include.url }}" class="">{{ include.title }}</a>
+        </h5>
+        {% if include.date != nil %}
+        <p class="card-text">
+            <small class="text-muted">
+                Added on {{ include.date | date: "%-d %B %Y" }}
+            </small>
+        </p>
+        {% endif %}
+        <p class="card-text">
+            {{ include.content | truncate: site.max_card_preview_length, "..." | markdownify }}
+        </p>
+    </div>
+
+    <div class="card-footer bg-transparent">
+        <center>
+            {% if include.pdf != nil %}
+            <a href="{{ include.pdf }}" class="card-link">PDF</a>
+            {% endif %}
+            {% if include.video != nil %}
+            <a href="{{ include.video }}" class="card-link">Video</a>
+            {% endif %}
+        </center>
+    </div>
+</div>
