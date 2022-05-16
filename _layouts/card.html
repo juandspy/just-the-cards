@@ -2,13 +2,24 @@
 layout: default
 show_title: false
 ---
+
+{% if page.image != nil %}
+<div class="container text-center">
+    <img src="{{ page.image }}" class="img-fluid" alt="Card image">
+</div>
+{% endif %}
+
 <h2>{{page.title}}</h2>
+
+{% if page.date != nil %}
 
 <small>
     <p>
         Added on {{ page.date | date: "%-d %B %Y" }}
     </p>
 </small>
+
+{% endif %}
 
 <p>{{page.content | markdownify }}</p>
 
