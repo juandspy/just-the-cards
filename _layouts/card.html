@@ -24,6 +24,13 @@ show_title: false
 <p>{{page.content | markdownify }}</p>
 
 <div class="container">
+
+    {% if page.tablature != nil %}
+    <div class="row">
+        {% include alphatab.html source=page.tablature %}
+    </div>
+    {% endif %}
+
     <div class="row">
         {% if page.pdf != nil %}
         <div class="col">
