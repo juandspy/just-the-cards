@@ -10,6 +10,6 @@
     {% if path.size == 1 %}
     <a class="back" href="/">Home</a>
     {% else %}
-    <a class="back" href="/{{ parent_url | strip }}">« {{ path | last }}</a>
+    <a class="back" href="{{site.baseurl}}{{ parent_url | strip }}">« {{ path | last }}</a>
     {% endif %}
 </div>

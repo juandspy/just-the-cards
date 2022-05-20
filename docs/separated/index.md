@@ -1,5 +1,6 @@
 ---
 title: "Separating sections"
+show_title: true
 ---
 
 In order to separate a section, just add a `separated` tag in `navigation.yml`:

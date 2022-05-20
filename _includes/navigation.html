@@ -16,7 +16,7 @@
             <!-- No dropdown -->
             {% if item.children == nil %}
             <li class="nav-item {% if page.url == item.link %}active{% endif %}">
-                <a class="nav-link" href="{{ item.link }}">
+                <a class="nav-link" href="{{site.baseurl}}{{ item.link }}">
                     {{ item.name }}
                     {% if page.url == item.link %}
                     <span class="sr-only">(current)</span>
@@ -48,7 +48,8 @@
                     {% assign sorted_sub_items = main_children | sort: 'name' %}
 
                     {% for sub_item in sorted_sub_items %}
-                    <a class="dropdown-item" href="/{{item.folder}}/{{sub_item.path}}">{{sub_item.name}}</a>
+                    <a class="dropdown-item"
+                        href="{{site.baseurl}}{{item.folder}}/{{sub_item.path}}">{{sub_item.name}}</a>
                     {% endfor %}
 
                     <!-- Separated categories -->
@@ -59,7 +60,8 @@
                     {% assign sorted_sub_items = separated_children | sort: 'name' %}
 
                     {% for sub_item in sorted_sub_items %}
-                    <a class="dropdown-item" href="/{{item.folder}}/{{sub_item.path}}">{{sub_item.name}}</a>
+                    <a class="dropdown-item"
+                        href="{{site.baseurl}}{{item.folder}}/{{sub_item.path}}">{{sub_item.name}}</a>
                     {% endfor %}
                 </div>
             </li>

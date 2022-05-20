@@ -1,6 +1,10 @@
 title: Just the Cards
 max_card_preview_length: 100
 
+domain: juandspy.github.io      # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: https://juandspy.github.io # the base hostname and protocol for your site, e.g. http://example.com
+baseurl: /just-the-cards/      # place folder name if the site is served in a subfolder
+
 collections:
   docs:
     output: true

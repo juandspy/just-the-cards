@@ -1,13 +1,11 @@
 - name: Home
-  link: /
+  link: 
 - name: Documentation
-  link: /docs/index.html
+  link: docs/index.html
   folder: docs
   children:
     - name: Cards
       path: cards
-    - name: Includes
-      path: includes
     - name: Layouts
       path: layouts
     - name: Sections
@@ -16,4 +14,4 @@
       path: separated
       separated: true
 - name: About
-  link: /about.html
+  link: about.html
