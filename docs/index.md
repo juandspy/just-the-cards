@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: sections
 title: Documentation
 show_title: true
 ---
