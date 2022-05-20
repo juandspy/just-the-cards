@@ -1,0 +1,15 @@
+<a href="{{ include.url }}" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ include.title }}</h5>
+        <!-- TODO: Count number of cards in section -->
+        <small>
+            {% capture n_cards %}
+            {% include count_children.html
+            url=include.url %}
+            {% endcapture %}
+
+            {{ n_cards }} cards
+        </small>
+    </div>
+    <p class="mb-1">{{ include.content }}</p>
+</a>

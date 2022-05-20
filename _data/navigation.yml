@@ -10,6 +10,8 @@
       path: includes
     - name: Layouts
       path: layouts
+    - name: Sections
+      path: sections
     - name: Separating sections
       path: separated
       separated: true

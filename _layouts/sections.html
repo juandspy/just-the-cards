@@ -5,9 +5,11 @@ show_title: true
 
 {{ content }}
 
-<div class="card-deck">
-    {% assign parent = page.url | remove:'index.html' %}
+<hr>
 
+<div class="list-group">
+
+    {% assign parent = page.url | remove:'index.html' %}
     {% for page in site.pages %}
 
     {% comment %}
@@ -17,19 +19,23 @@ show_title: true
 
     {% if checkArray[0] == "" %}
 
-    {% include card_preview.html
+    {% assign subpath = checkArray %}
+    {% assign splitSubpath = subpath | split:"/" %}
+
+
+    {% if splitSubpath.size == 2 %}
+    <!-- This means it is a subsection and not the child of a subsection-->
+
+    {% include section_preview.html
     url=page.url
     title=page.title
-    date=page.date
     content=page.content
-    pdf=page.pdf
-    video=page.video
-    image=page.image
     %}
 
     {% endif %}
 
-    {% endfor %}
-</div>
+    {% endif %}
 
-{% include back_url.html %}
+    {% endfor %}
+
+</div>

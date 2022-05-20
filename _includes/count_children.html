@@ -1,0 +1,20 @@
+{% assign n_cards = 0 %}
+
+{% assign section_parent = include.url | remove:'index.html' %}
+
+{% for page in site.pages %}
+
+{% comment %}
+Iterate over the pages under the parent
+{% endcomment %}
+{% assign checkArray = page.url | split:section_parent %}
+
+{% if checkArray[0] == "" %}
+
+{% capture n_cards %}{{ n_cards | plus:1 }}{% endcapture %}
+
+{% endif %}
+
+{% endfor %}
+
+{{ n_cards }}
