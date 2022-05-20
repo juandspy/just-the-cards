@@ -22,15 +22,18 @@ show_title: true
     {% assign subpath = checkArray %}
     {% assign splitSubpath = subpath | split:"/" %}
 
-
     {% if splitSubpath.size == 2 %}
     <!-- This means it is a subsection and not the child of a subsection-->
+
+    {% unless page.url contains 'html' %}
 
     {% include section_preview.html
     url=page.url
     title=page.title
     content=page.content
     %}
+
+    {% endunless %}
 
     {% endif %}
 
