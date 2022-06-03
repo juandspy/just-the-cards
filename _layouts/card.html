@@ -25,14 +25,14 @@ show_title: false
 
 <div class="container">
 
-    {% if page.tablature != nil %}
+    {% if page.tablature != nil and page.tablature != "" %}
     <div class="row">
         {% include alphatab.html source=page.tablature %}
     </div>
     {% endif %}
 
     <div class="row">
-        {% if page.pdf != nil %}
+        {% if page.pdf != nil and page.pdf != ""%}
         <div class="col">
 
             <p>Check the PDF here</p>
@@ -43,7 +43,7 @@ show_title: false
         </div>
         {% endif %}
         <div class="col">
-            {% if page.video != nil %}
+            {% if page.video != nil and page.video != "" %}
             <p>Check the demo video here</p>
 
             {% if page.video contains "youtube" %}
