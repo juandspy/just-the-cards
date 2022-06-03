@@ -31,38 +31,39 @@ show_title: false
     </div>
     {% endif %}
 
+    <hr>
+
+    {% if page.pdf != nil and page.pdf != ""%}
     <div class="row">
-        {% if page.pdf != nil and page.pdf != ""%}
-        <div class="col">
-
-            <p>Check the PDF here</p>
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe src="https://docs.google.com/gview?url={{page.pdf}}&embedded=true" frameborder="0"
-                    allowfullscreen></iframe>
-            </div>
-        </div>
-        {% endif %}
-        <div class="col">
-            {% if page.video != nil and page.video != "" %}
-            <p>Check the demo video here</p>
-
-            {% if page.video contains "youtube" %}
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe frameborder="0" src={{page.video}} allowfullscreen>
-                </iframe>
-            </div>
-
-            {% else %}
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe src="https://docs.google.com/gview?url={{page.video}}&embedded=true" frameborder="0"
-                    allowfullscreen></iframe>
-            </div>
-
-            {% endif %}
-
-            {% endif %}
+        <h3>Check the PDF here</h3>
+        <div class="embed-responsive embed-responsive-16by9">
+            <object data="{{page.pdf}}" width="1000" height="1000" type='application/pdf'></object>
         </div>
     </div>
+    {% endif %}
+    {% if page.video != nil and page.video != "" %}
+
+    <hr>
+
+    <div class="row">
+        <h3>Check the Video demo here</h3>
+
+        {% if page.video contains "youtube" %}
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe frameborder="0" src={{page.video}} allowfullscreen>
+            </iframe>
+        </div>
+
+        {% else %}
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe src="https://docs.google.com/gview?url={{page.video}}&embedded=true" frameborder="0"
+                allowfullscreen></iframe>
+        </div>
+
+        {% endif %}
+
+    </div>
+    {% endif %}
 </div>
 
 {% include back_url.html %}
