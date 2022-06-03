@@ -1,7 +1,12 @@
 name: Publish Ruby Gem
 
 on:
-  workflow_dispatch
+  # Manually publish
+  workflow_dispatch:
+  # Changes to just-the-cards.gemspec
+  push:
+    paths:
+      - 'just-the-cards.gemspec'
 
 jobs:
   build:
