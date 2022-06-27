@@ -1,6 +1,6 @@
 ---
 layout: card
-title: Card with date
+title: Card with date, pdf and video
 pdf: "http://infolab.stanford.edu/pub/papers/google.pdf"
 video: "https://www.youtube.com/embed/jNQXAC9IVRw"
 date: 2022-01-01

@@ -1,0 +1,13 @@
+{% if include.source contains "youtube" %}
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe frameborder="0" src={{include.source}} allowfullscreen>
+    </iframe>
+</div>
+
+{% else %}
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe src="https://docs.google.com/gview?url={{include.source}}&embedded=true" frameborder="0"
+        allowfullscreen></iframe>
+</div>
+
+{% endif %}

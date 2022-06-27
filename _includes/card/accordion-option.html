@@ -1,0 +1,27 @@
+<!-- 
+    Include parameters are:
+    - [type] Type of source: must match one .html in the card folder f.e image
+    - [source] Source: can be a path to an image, pdf, video...
+-->
+
+{% if include.source != nil and include.source != "" %}
+
+<div class="card">
+    <div class="card-header" id="heading{{ include.type | capitalize }}">
+        <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                data-target="#collapse{{ include.type | capitalize }}" aria-expanded="true"
+                aria-controls="collapse{{ include.type | capitalize }}">
+                {{ include.type | capitalize }}
+            </button>
+        </h2>
+    </div>
+    <div id="collapse{{ include.type | capitalize }}" class="collapse"
+        aria-labelledby="heading{{ include.type | capitalize }}" data-parent="#accordionSources">
+        <div class="card-body">
+            {% include card/{{ include.type }}.html source=include.source %}
+        </div>
+    </div>
+</div>
+
+{% endif %}
