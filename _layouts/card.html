@@ -3,12 +3,6 @@ layout: default
 show_title: false
 ---
 
-{% if page.image != nil %}
-<div class="container text-center">
-    <img src="{{ page.image }}" class="img-fluid" alt="Card image">
-</div>
-{% endif %}
-
 <h2>{{page.title}}</h2>
 
 {% if page.date != nil %}
@@ -23,47 +17,19 @@ show_title: false
 
 <p>{{page.content | markdownify }}</p>
 
-<div class="container">
+<div class="accordion" id="accordionSources">
+    <!-- Image -->
+    {% include card/accordion-option.html type='image' source=page.image %}
 
-    {% if page.tablature != nil and page.tablature != "" %}
-    <div class="row">
-        {% include alphatab.html source=page.tablature %}
-    </div>
-    {% endif %}
+    <!-- PDF -->
+    {% include card/accordion-option.html type='pdf' source=page.pdf %}
 
-    <hr>
+    <!-- Video -->
+    {% include card/accordion-option.html type='video' source=page.video %}
 
-    {% if page.pdf != nil and page.pdf != ""%}
-    <div class="row">
-        <h3>Check the PDF here</h3>
-        <div class="embed-responsive embed-responsive-16by9">
-            <object data="{{page.pdf}}" width="1000" height="1000" type='application/pdf'></object>
-        </div>
-    </div>
-    {% endif %}
-    {% if page.video != nil and page.video != "" %}
-
-    <hr>
-
-    <div class="row">
-        <h3>Check the Video demo here</h3>
-
-        {% if page.video contains "youtube" %}
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe frameborder="0" src={{page.video}} allowfullscreen>
-            </iframe>
-        </div>
-
-        {% else %}
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe src="https://docs.google.com/gview?url={{page.video}}&embedded=true" frameborder="0"
-                allowfullscreen></iframe>
-        </div>
-
-        {% endif %}
-
-    </div>
-    {% endif %}
+    <!-- Tablature -->
+    {% include card/accordion-option.html type='tablature' source=page.tablature %}
 </div>
+
 
 {% include back_url.html %}
